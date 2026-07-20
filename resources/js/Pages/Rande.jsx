@@ -1,5 +1,5 @@
 import { Head } from "@inertiajs/react";
-import BootstrapLayout from "@/layouts/BootstrapLayout";
+import BootstrapLayout from "@/Layouts/BootstrapLayout";
 import { useState } from "react";
 
 export default function Rande() {

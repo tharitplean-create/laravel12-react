@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Product;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,10 +25,25 @@ Route::get('/test', function () {
     return Inertia::render('Test');
 })->name('test');
 //
-Route::get('/rande', function () {
+Route::get('/quiz3', function () {
     return Inertia::render('Rande');
-})->name('rande');
+})->name('quiz3');
 //
+Route::get('/product', function () {
+    $products = Product::all();
+    return Inertia::render('ProductList', compact('products') );
+})->name('product');
+
+// routes/web.php
+Route::get('/product-others', function () {
+    return Inertia::render('ProductOthers');
+})->name('product-others');
+
+Route::get('/quiz4', function () {
+    return Inertia::render('Quiz4');
+})->name('quiz4');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
