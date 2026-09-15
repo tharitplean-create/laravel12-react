@@ -1,4 +1,4 @@
-import BootstrapLayout from "@/Layouts/BootstrapLayout";
+import BootstrapLayout from "@/layouts/BootstrapLayout";
 import React, { useState, useEffect } from "react";
 
 const ProductOthers = () => {
@@ -15,7 +15,7 @@ const ProductOthers = () => {
 
     const loadData2 = async () => {
         try {
-            const response = await fetch( "https://raw.githubusercontent.com/arc6828/laravel-react/refs/heads/main/public/json/products.json" );            
+            const response = await fetch("/api/product" );            
             const data = await response.json();
             setProducts(data);
         } catch (error) { console.error( "There was an error fetching the products!", error ); }
@@ -55,4 +55,3 @@ const ProductOthers = () => {
 };
 
 export default ProductOthers;
-

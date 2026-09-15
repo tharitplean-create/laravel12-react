@@ -124,7 +124,7 @@ export default function BootstrapLayout({ children }) {
                         className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
                     >
                         <i
-                            className="bi-bootstrap-fill"
+                            class="bi-bootstrap-fill"
                             style={{ fontSize: 30 }}
                         ></i>
                     </a>

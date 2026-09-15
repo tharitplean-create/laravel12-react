@@ -35,12 +35,5 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
         ];
-        
-        return array_merge(parent::share($request), [
-            // เพิ่มส่วนนี้เข้าไป
-            'flash' => [
-                'reward' => fn () => $request->session()->get('reward')
-            ],
-        ]);
     }
 }
