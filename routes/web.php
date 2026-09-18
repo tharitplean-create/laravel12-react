@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ExpenseController;
 use App\Models\Product;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -94,6 +95,14 @@ Route::get('/product-others', function () {
 Route::get('/quiz4', function () {
     return Inertia::render('Quiz4');
 })->name('quiz4');
+
+//-------------------------- project
+Route::middleware(['auth'])->group(function () {
+    Route::get('/expenses', [ExpenseController::class, 'index'])->name('expenses.index');
+    Route::post('/expenses', [ExpenseController::class, 'store'])->name('expenses.store');
+    Route::patch('/expenses/{expense}/status', [ExpenseController::class, 'updateStatus'])->name('expenses.updateStatus');
+    Route::get('/expenses/export-pdf', [ExpenseController::class, 'exportPdf'])->name('expenses.exportPdf');
+});
 
 
 Route::middleware('auth')->group(function () {
